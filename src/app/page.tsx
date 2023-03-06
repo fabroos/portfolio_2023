@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <>
       <div>
-        <section className="flex flex-col gap-24 items-center h-[calc(100vh_-_64px)] container mx-auto px-4">
+        <section className="flex flex-col gap-24 items-center min-h-[calc(100vh_-_64px)] container mx-auto px-4">
           <div className="flex flex-col justify-center items-center text-hero">
             <h1 className="flex w-full justify-between border-b-2 border-zinc-900 whitespace-nowrap"><span className="mr-6"><span className="animate-rotat">✳</span> FABRIZIO</span><span>SIGNORETTA</span></h1>
             <div className="relative">
