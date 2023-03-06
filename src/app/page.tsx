@@ -60,7 +60,7 @@ export default function Home() {
           <h2 className="text-title">CONTACT ME</h2>
           <div className="flex flex-col">
             {social.map((item) => (
-              <CustomLink key={item.name}  href={item.href}>{item.name}</CustomLink>
+              <CustomLink isBlank key={item.name}  href={item.href}>{item.name}</CustomLink>
             ))}
           </div>
         </section>
