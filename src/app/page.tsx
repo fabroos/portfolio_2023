@@ -11,8 +11,8 @@ import { useLayoutEffect, useRef } from "react";
 const social = [
   { name: 'Github', href: 'https://github.com/fabroos', icon: 'github' },
   { name: 'Twitter', href: 'https://twitter.com/fabroos', icon: 'twitter' },
-  { name: 'Instagram', href: 'https://instagram.com/fabroos', icon: 'instagram' },
-  { name: 'Linkedin', href: 'https://linkedin.com/in/fabroos', icon: 'linkedin' },
+  { name: 'Instagram', href: 'https://instagram.com/fabroos.s', icon: 'instagram' },
+  { name: 'Linkedin', href: 'https://linkedin.com/in/signorettafabrizio', icon: 'linkedin' },
 ]
 
 const works = [
