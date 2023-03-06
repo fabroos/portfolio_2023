@@ -1,91 +1,70 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import AnchorButton from "@/components/AnchorButton";
+import CustomLink from "@/components/custom-link";
+import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
+import Lenis from "@studio-freight/lenis";
+import gsap from "gsap";
+import Image from "next/image";
+import Link from "next/link";
+import { useLayoutEffect, useRef } from "react";
 
-const inter = Inter({ subsets: ['latin'] })
+
+const social = [
+  { name: 'Github', href: 'https://github.com/fabroos', icon: 'github' },
+  { name: 'Twitter', href: 'https://twitter.com/fabroos', icon: 'twitter' },
+  { name: 'Instagram', href: 'https://instagram.com/fabroos', icon: 'instagram' },
+  { name: 'Linkedin', href: 'https://linkedin.com/in/fabroos', icon: 'linkedin' },
+]
+
+const works = [
+  { name: "1versus1", href: "/1versus1.png" },
+  { name: "Museum", href: "/museum_better.png" },
+  { name: "Himitsu", href: "/himitsu_better.png" },
+]
+
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div>
+        <section className="flex flex-col gap-24 items-center h-[calc(100vh_-_64px)] container mx-auto px-4">
+          <div className="flex flex-col justify-center items-center text-hero">
+            <h1 className="flex w-full justify-between border-b-2 border-zinc-900 whitespace-nowrap"><span className="mr-6"><span className="animate-rotat">✳</span> FABRIZIO</span><span>SIGNORETTA</span></h1>
+            <div className="relative">
+              <AnchorButton className="left-[max(20vw,120px)] bottom-[30%] " to="#works">
+                WORKS
+              </AnchorButton>
+              <AnchorButton className="right-[max(2vw,20px)] -top-[5%]" to="#contact" startsIn={6.4}>
+                CONTACT
+              </AnchorButton>
+              <h2 className="text-center mt-8">(FULLSTACK DESIGNER & DEVELOPER)</h2>
+            </div>
+          </div>
+            <p className="max-w-screen-md text-lg overflow-hidden">{"Hello, I'm Fabrizio Signoretta, a creative Fullstack Developer based in Cordoba, Argentina. 🇦🇷 My passion is creating exceptional experiences and crafting beautiful, interactive interfaces that captivate users. I specialize in using cutting-edge technologies such as GSAP, Tailwind CSS, React, TypeScript, and Next.js 13, but I'm always eager to learn and work with other tools and frameworks."}</p>
+        </section>
+        <div aria-hidden className="absolute bottom-0 left-0 w-full -z-10 overflow-hidden">
+          <p className="text-[20vw] text-zinc-200/50 leading-none dark:text-zinc-800/50">FABROOS</p>
         </div>
+        <section id="works" className="flex container mx-auto flex-col min-h-screen gap-4 py-4 px-4">
+          <h2 className="text-title">MY PROJECTS</h2>
+          <div className="grid-layout flex-1 gap-8">
+            {works.map((work, i) => (
+            <picture key={work.name} className={`bg-zinc-900 rounded-xl dark:bg-zinc-100 grid-area-${i+1} text-zinc-900 grid place-content-center w-full h-full relative overflow-hidden`}>
+              <Image src={work.href} fill className="object-cover" alt={work.name} />
+            </picture>
+            ))}
+            
+          </div>
+          <Link href="https://github.com/fabroos">MORE PROJECTS</Link>
+        </section>
+        <section id="contact" className="flex container mx-auto flex-col pb-12 gap-4 py-4 px-4">
+          <h2 className="text-title">CONTACT ME</h2>
+          <div className="flex flex-col">
+            {social.map((item) => (
+              <CustomLink key={item.name}  href={item.href}>{item.name}</CustomLink>
+            ))}
+          </div>
+        </section>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   )
 }
