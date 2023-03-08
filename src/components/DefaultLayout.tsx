@@ -29,13 +29,8 @@ function Layout({ children}: PropsWithChildren) {
       timeline.play();
     }, 1000);
 
-    
-
-    
-
     // Remove event listeners on cleanup
     return () => {
-
       clearTimeout(to);
     }
   }, []);
@@ -92,7 +87,7 @@ function Layout({ children}: PropsWithChildren) {
   return (
     // Wrapping component inside a div with opacity set to 0
     <>
-      <div id="loader" ref={loaderRef} className="fixed bg-zinc-900 dark:bg-zinc-100 z-50 top-0 left-0 w-full h-full grid place-content-center">
+      <div id="loader" ref={loaderRef} className="fixed bg-zinc-900 dark:bg-zinc-100 transition-all z-50 top-0 left-0 w-full h-full grid place-content-center">
         <div className="text-hero text-zinc-100 dark:text-zinc-900">FABROOS</div>
       </div>
       <div id="scrollBar" ref={scrollBarRef} className="fixed z-50 top-0 right-0 h-full w-1.5">

@@ -1,7 +1,8 @@
+import Lenis from "@studio-freight/lenis";
 import { create } from "zustand";
 
 type Store = {
-  lenis: any;
+  lenis: Lenis | null;
   setLenis: (lenis: any) => void;
 };
 

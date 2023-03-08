@@ -49,10 +49,10 @@ export default function Home() {
           <div className="grid-layout flex-1 gap-8">
             {works.map((work, i) => (
             <picture key={work.name} className={`bg-zinc-900 rounded-xl dark:bg-zinc-100 grid-area-${i+1} text-zinc-900 grid place-content-center w-full h-full relative overflow-hidden`}>
-              <Image src={work.href} fill className="object-cover" alt={work.name} />
+              <Image src={work.href} fill className="object-cover" alt={work.name} placeholder="blur"
+                blurDataURL={work.href} />
             </picture>
             ))}
-            
           </div>
           <Link href="https://github.com/fabroos">MORE PROJECTS</Link>
         </section>
