@@ -11,6 +11,7 @@ interface LenisAnchorProps extends React.HTMLAttributes<HTMLButtonElement> {
 const LenisAnchor = ({ to, children, before, ...props }: LenisAnchorProps, ref: React.Ref<HTMLButtonElement>) => {
   const { lenis, setLenis } = useStore();
   function scrollTo(to: string | Element | undefined){
+    if(!lenis) return;
     if(before) before()
     const el = (typeof to === 'string' ? document.querySelector(to) : to) ?? document.body;
     lenis.scrollTo(el, { duration: 1.2, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) })
